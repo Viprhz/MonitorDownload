@@ -1,7 +1,7 @@
 #!/bin/sh
-# 脚本作用:统计 CNET 下载 MacBooster 的数量,并把统计数据发送到网站服务器.
+# 脚本作用:统计下载文件的数量,并把统计数据发送到网站服务器.
 # 2014-01-24
-# 朱荣华
+# Viprhz
 
 # 打印日志
 # logFile=~/Library/Preferences/CountDownloadLog.txt
