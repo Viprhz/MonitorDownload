@@ -38,7 +38,7 @@ for ((i=1;i<4;i++))
 
 		curl -H "Accept: application/json" -H "Content-type: application/json" -X POST \
 		-d "{\"mac_address\":\"${ComputerName}\",\"downloads\":${totalCount}}" ${sendAddress} >>${infoPath}
-
+		sleep 10	
 		countUpload=`awk '/upload_success/' ~/Documents/info.html|wc -l`
 
 			#If send data success, then delete downloads file.
@@ -57,6 +57,6 @@ for ((i=1;i<4;i++))
 			
 	fi
 	echo "$(date "+%Y-%m-%d %H:%M:%S") The${i}times send"
-	sleep 2
+	sleep 20
 }
 
