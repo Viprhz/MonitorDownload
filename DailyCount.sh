@@ -43,11 +43,10 @@ fi
 
 
 #Send data to WebServer
-for ((i=1;i<100;i++))
-{
+if [[ "${totalCount}" -ge 1 ]];then
 
-	if [[ "${totalCount}" -ge 1 ]];then
-
+	for ((i=1;i<100;i++))
+	{
 		curl -H "Accept: application/json" -H "Content-type: application/json" -X POST \
 		-d "{\"mac_address\":\"${ComputerName}\",\"downloads\":${totalCount}}" ${sendAddress} >${infoPath}
 		sleep 10	
@@ -64,14 +63,15 @@ for ((i=1;i<100;i++))
 			
 			fi
 	
-	fi
 
-now=$(date "+%M")
-if (( $startTime - $now == 50 )); then
-break;
+		now=$(date "+%M")
+		if (( $startTime - $now == 50 )); then
+		break;
+		fi
+	sleep 50
+
+	}
+
 fi
-sleep 50
-
-}
 
 echo "#################### $(date "+%Y-%m-%d %H:%M:%S") End Script. ####################" >>${logFile}
